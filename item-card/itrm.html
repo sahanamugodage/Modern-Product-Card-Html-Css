@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./item.css">
+    <link rel="stylesheet" href="./colors.css">
+</head>
+
+<body>
+
+
+
+    <div class="container taransparent">
+        <div class="content">
+            <div class="item-cards highlight-success">
+                <div class="item-card content">
+                    <img src="./images/06.png" alt="image_item" class="image" id="image">
+                </div>
+                <div class="item-content content">
+                    <div class="item-details">
+                        <h1>Apple Smart Watch</h1>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, eaque?</p>
+                    </div>
+                    <div class="items">
+                        <button type="button" class="item active highlight-success"></button>
+                        <button type="button" class="item  highlight-danger"></button>
+                        <button type="button" class="item  highlight-warning"></button>
+                        <button type="button" class="item  highlight-primary"></button>
+                        <button type="button" class="item  dark"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const itembutton = document.querySelectorAll('.item');
+        itembutton.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.item').forEach(btn => btn.classList.remove('active'));
+                button.classList.toggle('active');
+
+                const card = document.querySelector('.item-cards');
+                const cardimage = document.getElementById('image');
+                card.classList.remove('highlight-success', 'highlight-danger', 'highlight-warning', 'highlight-primary', 'dark');
+                if (index === 1) {
+                    card.classList.add('highlight-danger');
+                    cardimage.src = './images/03.png';
+                }else if(index === 2){
+                    card.classList.add('highlight-warning')
+                    cardimage.src = './images/08.png';
+                }else if(index === 3){
+                    card.classList.add('highlight-primary')
+                    cardimage.src = './images/01.png';
+                }else if(index === 4){
+                    card.classList.add('dark')
+                    cardimage.src = './images/07.png';
+                }else if(index === 0){
+                    card.classList.add('highlight-success');
+                    cardimage.src = './images/06.png';
+                }
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>
